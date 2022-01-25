@@ -1,10 +1,10 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, Col } from 'react-bootstrap'
 
 
 function BookCards() {
   return (
-    <div>
+    <Col>
       <Card>
         <Card.Img variant='top' src='../images/book.jpg' />
         <Card.Body>
@@ -14,7 +14,7 @@ function BookCards() {
           <Card.Link className='mb-2' href=''>Add to Wishlist</Card.Link>
         </Card.Body>
       </Card>
-    </div>
+    </Col>
   )
 }
 
