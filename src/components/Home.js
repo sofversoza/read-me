@@ -6,14 +6,14 @@ import BookDetails from './BookDetails'
 
 
 function Home({categoryViewParams, setCategoryViewParams}) {
-  const [categoryContent, setCategoryContent] = useState([])
+  const [categoryContent, setCategoryContent] = useState({})
 
-  useEffect(() => getCategoryContent(), [])
+  useEffect(() => getCategoryContent(), [categoryViewParams])
 
   function getCategoryContent() {
     fetch(`http://localhost:9292/${endpoint()}`)
     .then(resp => resp.json())
-    .then(content => console.log(content))
+    .then(content => setCategoryContent(content))
   }
 
   function endpoint() {
@@ -29,20 +29,23 @@ function Home({categoryViewParams, setCategoryViewParams}) {
     }
   }
 
-  function viewSelector() {
-    if (categoryViewParams.detailView) {
-      return (<BookDetails />)
-    // } else {
-    //   return (<CategoryDisplay category={categoryViewParams.category} categoryContent={categoryContent} />)
-    }
-  }
+  // function viewSelector() {
+  //   if (categoryViewParams.detailView) {
+  //     return (<BookDetails />)
+  //   } else if (!!categoryContent.length) {
+  //     return (<CategoryDisplay category={categoryViewParams.category} categoryContent={categoryContent} />)
+  //   } else {
+  //     return (<h1>Loading...</h1>)
+  //   }
+  // }
 
 
   return (
     <>
       <NavigationBar setCategoryViewParams={setCategoryViewParams} />
       <Search />
-      {viewSelector()}
+      {categoryViewParams.detailView ? <BookDetails /> : <></>}
+      {!categoryViewParams.detailView && !!Object.keys(categoryContent).length ? <CategoryDisplay category={categoryViewParams.category} categoryContent={categoryContent} /> : <h1>Loading...</h1>}
     </>
   )
 }

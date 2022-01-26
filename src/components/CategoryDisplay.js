@@ -6,7 +6,7 @@ import BookCards from './BookCards'
 function CategoryDisplay({ category, categoryContent }) {
     
     function generateCards(bookArray) {
-        //return (bookArray.map(book => <BookCards book={book} />))
+        return (bookArray.map(book => <BookCards key={book.id} book={book} />))
     }
   
     return (

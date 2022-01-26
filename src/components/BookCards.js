@@ -6,7 +6,7 @@ function BookCards({ book }) {
   return (
     <Col>
       <Card>
-        <Card.Img variant='top' src='../images/book.jpg' />
+        <Card.Img variant='top' src={book.image} />
         <Card.Body>
           <Card.Title className='mb-2'>Book Title</Card.Title>
           <Card.Subtitle className='mb-2 text-muted'>Author</Card.Subtitle>

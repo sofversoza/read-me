@@ -19,7 +19,7 @@ function App() {
     if (!Object.keys(user).length) {
       return (<Login setUser={setUser}/>)
     } else {
-      return (<Home categoryViewParams={categoryViewParams} setcategoryViewParams={setCategoryViewParams}/>)
+      return (<Home categoryViewParams={categoryViewParams} setCategoryViewParams={setCategoryViewParams}/>)
     }
   }
 
