@@ -9,24 +9,26 @@ function NavigationBar({ setCategoryViewParams }) {
   }
 
   return (
-      <div>
-        <Navbar bg="light" variant='light' expand="lg">
-          <Container>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                    <Nav.Link to="/" onClick={e => categoryDisplay("Best Sellers")}>Best Sellers</Nav.Link>
-                    <Nav.Link to="/" onClick={e => categoryDisplay("Highest Rated")}>Highest Rated</Nav.Link>
-                    <Nav.Link to="/" onClick={e => categoryDisplay("New Releases")}>New Releases</Nav.Link>
-                    <Nav.Link href="#home">Today's Deals</Nav.Link>
-                    <Nav.Link href="#link">Cart</Nav.Link>
-                    {/* ACCOUNT DROPDOWN */}
-                    <AccountDropdown />
-                </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </div>
+      <Nav style={{ backgroundColor:'#DCC2AE'}} fill variant="tabs">
+        <Nav.Item>
+          <Nav.Link to="/" onClick={e => categoryDisplay("Best Sellers")} eventKey="1" style={{color:'black'}}>Best Sellers</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link to="/" onClick={e => categoryDisplay("Highest Rated")} eventKey="2" style={{color:'black'}}>Highest Rated</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link to="/" onClick={e => categoryDisplay("New Releases")} eventKey="3" style={{color:'black'}}>New Releases</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="#home" eventKey="4" style={{color:'black'}}>Today's Deals</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="#link" eventKey="5" style={{color:'black'}}>Cart</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <AccountDropdown />
+        </Nav.Item>
+      </Nav>
   )
 }
 

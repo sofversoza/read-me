@@ -1,23 +1,27 @@
 import React from 'react';
-import {Button} from 'react-bootstrap'
+import NavigationBar from './NavigationBar'
+import { Button, Image } from 'react-bootstrap'
+
 
 function Header() {
   return (
-    <div>
-
-        <div>
-            <img
-                src='../images/logo-stack-sm.png'
-                alt='logo'
-                width='200'
-                weight='200'
-            />
-            {/* BUTTON DARK/LIGHT MODE */}
-            <Button >Light/Dark</Button>
+    <>
+    <div style={{backgroundColor: '#C1D2DF'}}>
+      <div className="d-flex justify-content-end align-items-center" style={{paddingRight: '10px', paddingTop: '10px'}}>
+        <div className="form-check form-switch">
+          <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+          <label className="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+        </div>
+      </div>
+    </div>
+    <div style={{backgroundColor: '#C1D2DF'}}>
+        <div className="d-flex justify-content-around align-items-center">
+          <Image src='../images/logo-open-md.png' height='260' width='260'/>
+            
         </div>
     </div>
+    </>
   )
 }
-
 
 export default Header;

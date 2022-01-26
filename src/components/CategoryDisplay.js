@@ -13,19 +13,19 @@ function CategoryDisplay({ category, categoryContent }) {
     <div>
         <Container className="mb-5 mt-5"> 
         <h1>{category}</h1>
-            <Row>
+            <Row class="row flex-nowrap">
                 {generateCards(categoryContent.all)}
             </Row>
         </Container>    
         <Container className="mb-5 mt-5"> 
         <h1>{category} - Nonfiction</h1>
-            <Row>            
+            <Row class="row flex-nowrap">             
                 {generateCards(categoryContent.nonfiction)}
             </Row>
         </Container>    
         <Container className="mb-5 mt-5"> 
         <h1>{category} - Fiction</h1>
-            <Row>          
+            <Row class="row flex-nowrap">          
                 {generateCards(categoryContent.fiction)}
             </Row>
         </Container>

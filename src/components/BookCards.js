@@ -5,13 +5,13 @@ import { Card, Button, Col } from 'react-bootstrap'
 function BookCards({ book }) {
   return (
     <Col>
-      <Card>
-        <Card.Img variant='top' src={book.image} />
+      <Card style={{ height: '400px', width: '180px'}}> 
+        <Card.Img variant='top' src={book.image} width='165.51' height='255'/>
         <Card.Body>
           <Card.Title className='mb-2'>Book Title</Card.Title>
           <Card.Subtitle className='mb-2 text-muted'>Author</Card.Subtitle>
           <Card.Subtitle className='mb-2 text-muted'>Genre</Card.Subtitle>
-          <Card.Link className='mb-2' href=''>Add to Wishlist</Card.Link>
+          <Card.Link className='mb-4' href=''>Add to Wishlist</Card.Link>
         </Card.Body>
       </Card>
     </Col>
