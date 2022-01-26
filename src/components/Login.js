@@ -46,13 +46,11 @@ function Login({ setUser }) {
     }
 
     function errorMessage() {
-        if (incorrect) {
-            return(
-                <Form.Text className="text-muted"> {/*red error message*/}
-                Incorrect username or password. Please try again.
-                </Form.Text>
-            )
-        }
+        return(
+            <Form.Text className="text-muted"> {/*red error message*/}
+            Incorrect username or password. Please try again.
+            </Form.Text>
+        )
     }
 
     
@@ -73,13 +71,7 @@ function Login({ setUser }) {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={e => formChange(e)} value={payload.password} type="password" placeholder="Password" />
                 </Form.Group>
-                { incorrect ? 
-                    <Form.Text className="text-muted"> {/*red error message*/}
-                    Incorrect username or password. Please try again.
-                    </Form.Text> 
-                    :
-                    <></>
-                }
+                { incorrect ? errorMessage() : <></>}
                 <Button onClick={e => loginPost(e)} variant="primary" type="submit">
                     Sign in
                 </Button>

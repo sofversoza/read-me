@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button, Col } from 'react-bootstrap'
 
 
-function BookCards() {
+function BookCards({ book }) {
   return (
     <Col>
       <Card>

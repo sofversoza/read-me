@@ -12,16 +12,16 @@ function Search() {
                 className="me-2"
                 aria-label="Search"
             />
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+            <label className="form-check-label" htmlFor="flexRadioDefault1">
                 Author
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+            <label className="form-check-label" htmlFor="flexRadioDefault1">
                 Title
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+            <label className="form-check-label" htmlFor="flexRadioDefault1">
                 Genre
             </label>
             <Button variant='info' style={{color: 'white'}}>Search</Button>
