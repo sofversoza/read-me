@@ -9,12 +9,13 @@ import SearchResults from './SearchResults'
 function Home({categoryViewParams, setCategoryViewParams, setCart, cart, searchResults, setSearchResults, searchValues, setSearchValues}) {
   const firstLoad = useRef(true)
   const [categoryContent, setCategoryContent] = useState({})
+  const [searchToggle, setSearchToggle] = useState(false)
   
 
   useEffect(() => getCategoryContent(), [categoryViewParams])
 
   useEffect(() => {
-    if (firstLoad.current == false && !!searchValues.query) {
+    if (firstLoad.current === false && !!searchValues.query) {
       getSearchResults({...searchValues})
     } else {
       firstLoad.current = false
@@ -29,16 +30,16 @@ function Home({categoryViewParams, setCategoryViewParams, setCart, cart, searchR
 
   function endpoint() {
     const category = categoryViewParams.category
-    if (category == "Best Sellers") {
+    if (category === "Best Sellers") {
       return("best_sellers")
     }
-    if (category == "Highest Rated") {
+    if (category === "Highest Rated") {
       return("highest_rated")
     }
-    if (category == "New Releases") {
+    if (category === "New Releases") {
       return("new_releases")
     }
-    if (category == "Deals") {
+    if (category === "Deals") {
       return("deals")
     }
   }
@@ -77,7 +78,7 @@ function Home({categoryViewParams, setCategoryViewParams, setCart, cart, searchR
   return (
     <>
       <NavigationBar setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults}/>
-      <Search setSearchValues={setSearchValues} />
+      <Search setSearchValues={setSearchValues} searchToggle={searchToggle} setSearchToggle={setSearchToggle} />
       {viewSelector()}
     </>
   )

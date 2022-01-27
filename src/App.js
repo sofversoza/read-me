@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './components/Header';
-import NavigationBar from './components/NavigationBar'
 import Home from './components/Home';
 import Login from './components/Login';
 import AccountDetails from './components/AccountDetails';

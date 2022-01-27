@@ -9,11 +9,11 @@ function Login({ setUser }) {
     const [payload, setPayload] = useState({username: "", password: ""})
 
     function formChange(e) {
-        if (e.target.id == "formBasicUsername") {
+        if (e.target.id === "formBasicUsername") {
             setPayload({...payload, username: e.target.value})
             
         }
-        if (e.target.id == "formBasicPassword") {
+        if (e.target.id === "formBasicPassword") {
             setPayload({...payload, password: e.target.value})
         }
     }
