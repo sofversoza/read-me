@@ -37,7 +37,7 @@ function App() {
       <Switch>
 
         <Route path={"/cart/checkout"}>
-          <CheckoutPage setCategoryViewParams={setCategoryViewParams} cart={cart} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />
+          <CheckoutPage user={user} setCategoryViewParams={setCategoryViewParams} cart={cart} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />
         </Route>
 
         <Route path={"/cart"}>
