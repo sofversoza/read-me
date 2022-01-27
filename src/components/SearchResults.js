@@ -39,9 +39,9 @@ function SearchResults({searchResults, searchValues, setCart, cart}) {
 
     return(
         <div>
-            <h1>Results for: "{searchValues.query}" by {searchValues.searchBy.charAt(0).toUpperCase() + searchValues.searchBy.slice(1)}</h1>
+            <h1>{searchResults[0] !== "No search results" ? searchResults.length : 0} results for: "{searchValues.query}" search by "{searchValues.searchBy.charAt(0).toUpperCase() + searchValues.searchBy.slice(1)}"...</h1>
             <Container className="mb-5 mt-5 flex-nowrap" >
-                {generateResults()}
+                {searchResults[0] !== "No search results" ? generateResults() : <></>}
             </Container>
         </div>
     )
