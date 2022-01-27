@@ -1,0 +1,15 @@
+#heading {
+    font-size: 28px;
+    font-family: sans-serif;
+    color: #023581;
+    margin-bottom: 20px;
+}
+
+#form-container {
+    place-items: center;
+    margin-top: 160px;
+}
+
+#sign-in-form {
+    max-width: 400px;
+}

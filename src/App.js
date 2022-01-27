@@ -33,7 +33,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      
+      {!!Object.keys(user).length ? <Header /> : <></>} 
       <Switch>
 
         <Route path={"/cart/checkout"}>
