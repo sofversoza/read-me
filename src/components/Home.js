@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import NavigationBar from './NavigationBar'
 import CategoryDisplay from "./CategoryDisplay";
 import Search from "./Search";
@@ -6,9 +6,20 @@ import BookDetails from './BookDetails'
 
 
 function Home({categoryViewParams, setCategoryViewParams}) {
+  const firstLoad = useRef(true)
   const [categoryContent, setCategoryContent] = useState({})
+  const [searchResults, setSearchResults] = useState([])
+  const [searchValues, setSearchValues] = useState({query: '', searchBy: ''})
 
   useEffect(() => getCategoryContent(), [categoryViewParams])
+
+  useEffect(() => {
+    if (firstLoad.current == false) {
+      getSearchResults({...searchValues})
+    } else {
+      firstLoad.current = false
+    }
+  }, [searchValues])
 
   function getCategoryContent() {
     fetch(`http://localhost:9292/${endpoint()}`)
@@ -29,21 +40,23 @@ function Home({categoryViewParams, setCategoryViewParams}) {
     }
   }
 
-  // function viewSelector() {
-  //   if (categoryViewParams.detailView) {
-  //     return (<BookDetails />)
-  //   } else if (!!categoryContent.length) {
-  //     return (<CategoryDisplay category={categoryViewParams.category} categoryContent={categoryContent} />)
-  //   } else {
-  //     return (<h1>Loading...</h1>)
-  //   }
-  // }
-
+  function getSearchResults(payload) {
+    const postObj = {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    }
+    fetch(`http://localhost:9292/search`, postObj) 
+    .then(resp => resp.json())
+    .then(content => console.log(content))
+  }
 
   return (
     <>
       <NavigationBar setCategoryViewParams={setCategoryViewParams} />
-      <Search />
+      <Search setSearchValues={setSearchValues} />
       {categoryViewParams.detailView ? <BookDetails /> : <></>}
       {!categoryViewParams.detailView && !!Object.keys(categoryContent).length ? <CategoryDisplay category={categoryViewParams.category} categoryContent={categoryContent} /> : <h1>Loading...</h1>}
     </>

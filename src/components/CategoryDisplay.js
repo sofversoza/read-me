@@ -11,21 +11,21 @@ function CategoryDisplay({ category, categoryContent }) {
   
     return (
     <div>
-        <Container className="mb-5 mt-5"> 
+        <Container className="mb-5 mt-5 flex-nowrap" > 
         <h1>{category}</h1>
-            <Row class="row flex-nowrap">
+            <Row className="row flex-nowrap" >
                 {generateCards(categoryContent.all)}
             </Row>
         </Container>    
-        <Container className="mb-5 mt-5"> 
+        <Container className="mb-5 mt-5 flex-nowrap"> 
         <h1>{category} - Nonfiction</h1>
-            <Row class="row flex-nowrap">             
+            <Row className="row flex-nowrap">             
                 {generateCards(categoryContent.nonfiction)}
             </Row>
         </Container>    
-        <Container className="mb-5 mt-5"> 
+        <Container className="mb-5 mt-5 flex-nowrap"> 
         <h1>{category} - Fiction</h1>
-            <Row class="row flex-nowrap">          
+            <Row className="row flex-nowrap">          
                 {generateCards(categoryContent.fiction)}
             </Row>
         </Container>
