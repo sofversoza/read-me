@@ -4,7 +4,7 @@ import NavigationBar from './NavigationBar'
 import CartRow from './CartRow'
 
 
-function Cart({cart, setCategoryViewParams}) {
+function Cart({cart, setCart, setCategoryViewParams, setSearchValues, setSearchResults}) {
   
     function generateCartItems() {
         cart.map(item => {
@@ -14,7 +14,7 @@ function Cart({cart, setCategoryViewParams}) {
 
     return (
     <>
-        <NavigationBar setCategoryViewParams={setCategoryViewParams} />
+        <NavigationBar setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />
         <div>
             <div>
             <h1>Your Cart</h1>

@@ -10,7 +10,7 @@ function Header() {
       <div className="d-flex justify-content-end align-items-center" style={{paddingRight: '10px', paddingTop: '10px'}}>
         <div className="form-check form-switch">
           <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
-          <label className="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
         </div>
       </div>
     </div>

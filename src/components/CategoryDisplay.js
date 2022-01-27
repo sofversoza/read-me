@@ -3,10 +3,10 @@ import { Row, Col, Container } from 'react-bootstrap'
 import BookCards from './BookCards'
 
 
-function CategoryDisplay({ category, categoryContent }) {
+function CategoryDisplay({ category, categoryContent, setCart, cart }) {
     
     function generateCards(bookArray) {
-        return (bookArray.map(book => <BookCards key={book.id} book={book} />))
+        return (bookArray.map(book => <BookCards key={book.id} book={book} cart={cart} setCart={setCart} />))
     }
   
     return (

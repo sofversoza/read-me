@@ -34,12 +34,10 @@ function Login({ setUser }) {
 
     function handleIncorrect(userObj) {
         if (Object.keys(userObj).length > 1) {
-            console.log(userObj)
-            setUser(userObj)
             setIncorrect(false)
             setPayload({username: "", password: ""})
+            setUser(userObj)
         } else {
-            console.log(userObj)
             setIncorrect(true)
             setPayload({username: "", password: ""})
         }

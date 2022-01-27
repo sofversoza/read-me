@@ -2,7 +2,7 @@ import React from 'react';
 import {Container, Button} from 'react-bootstrap'
 
 
-function BookDetails() {
+function BookDetails({ setCart, cart}) {
   return (
       <>
         <div>

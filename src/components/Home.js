@@ -3,18 +3,18 @@ import NavigationBar from './NavigationBar'
 import CategoryDisplay from "./CategoryDisplay";
 import Search from "./Search";
 import BookDetails from './BookDetails'
+import SearchResults from './SearchResults'
 
 
-function Home({categoryViewParams, setCategoryViewParams}) {
+function Home({categoryViewParams, setCategoryViewParams, setCart, cart, searchResults, setSearchResults, searchValues, setSearchValues}) {
   const firstLoad = useRef(true)
   const [categoryContent, setCategoryContent] = useState({})
-  const [searchResults, setSearchResults] = useState([])
-  const [searchValues, setSearchValues] = useState({query: '', searchBy: ''})
+  
 
   useEffect(() => getCategoryContent(), [categoryViewParams])
 
   useEffect(() => {
-    if (firstLoad.current == false) {
+    if (firstLoad.current == false && !!searchValues.query) {
       getSearchResults({...searchValues})
     } else {
       firstLoad.current = false
@@ -38,6 +38,9 @@ function Home({categoryViewParams, setCategoryViewParams}) {
     if (category == "New Releases") {
       return("new_releases")
     }
+    if (category == "Deals") {
+      return("deals")
+    }
   }
 
   function getSearchResults(payload) {
@@ -50,15 +53,32 @@ function Home({categoryViewParams, setCategoryViewParams}) {
     }
     fetch(`http://localhost:9292/search`, postObj) 
     .then(resp => resp.json())
-    .then(content => console.log(content))
+    .then(content => setSearchResults(content))
+  }
+
+  function viewSelector() {
+    if (categoryViewParams.detailView) {
+      return(<BookDetails setCart={setCart} cart={cart} />)
+    } else if (!categoryViewParams.detailView && !!Object.keys(searchResults).length) {
+      return(
+        <>
+          {!categoryViewParams.detailView && !!Object.keys(searchResults).length ? <SearchResults searchResults={searchResults} searchValues={searchValues} setCart={setCart} cart={cart}/> : <h1>Loading...</h1>}
+        </>
+      )
+    } else {
+      return(
+        <>
+          {!!Object.keys(categoryContent).length ? <CategoryDisplay category={categoryViewParams.category} categoryContent={categoryContent} setCart={setCart} cart={cart} /> : <h1>Loading...</h1>}
+        </>
+      )
+    }
   }
 
   return (
     <>
-      <NavigationBar setCategoryViewParams={setCategoryViewParams} />
+      <NavigationBar setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults}/>
       <Search setSearchValues={setSearchValues} />
-      {categoryViewParams.detailView ? <BookDetails /> : <></>}
-      {!categoryViewParams.detailView && !!Object.keys(categoryContent).length ? <CategoryDisplay category={categoryViewParams.category} categoryContent={categoryContent} /> : <h1>Loading...</h1>}
+      {viewSelector()}
     </>
   )
 }

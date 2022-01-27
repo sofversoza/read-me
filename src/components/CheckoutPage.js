@@ -3,10 +3,10 @@ import {Button} from 'react-bootstrap'
 import NavigationBar from './NavigationBar'
 
 
-function CheckoutPage({ setCategoryViewParams }) {
+function CheckoutPage({ cart, setCategoryViewParams, setSearchValues, setSearchResults }) {
   return (
     <>
-      <NavigationBar setCategoryViewParams={setCategoryViewParams} />
+      <NavigationBar setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />
       <div>
         <h1>Checkout</h1>
         <h2>Email address (for order confirmation)</h2>

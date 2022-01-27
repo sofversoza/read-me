@@ -3,10 +3,10 @@ import {Button} from 'react-bootstrap'
 import NavigationBar from './NavigationBar'
 
 
-function AccountDetails({setCategoryViewParams}) {
+function AccountDetails({ setCategoryViewParams, setSearchValues, setSearchResults }) {
   return (
     <>
-      <NavigationBar setCategoryViewParams={setCategoryViewParams} />
+      <NavigationBar setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />
       <div>
         <div>
             <h1>My Account</h1>

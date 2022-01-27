@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button, Col } from 'react-bootstrap'
 
 
-function BookCards({ book }) {
+function BookCards({ book, cart, setCart }) {
   return (
     <Col>
       <Card style={{ height: '400px', width: '180px'}}> 

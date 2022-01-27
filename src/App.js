@@ -14,12 +14,20 @@ import CheckoutPage from './components/CheckoutPage';
 function App() {
   const [user, setUser] = useState({})
   const [categoryViewParams, setCategoryViewParams] = useState({detailView: false, category: 'Best Sellers'})
+  const [cart, setCart] = useState([])
+  const [searchResults, setSearchResults] = useState([])
+  const [searchValues, setSearchValues] = useState({query: '', searchBy: ''})
 
   function loginOrHome() {
     if (!Object.keys(user).length) {
       return (<Login setUser={setUser}/>)
     } else {
-      return (<Home categoryViewParams={categoryViewParams} setCategoryViewParams={setCategoryViewParams}/>)
+      return (<Home categoryViewParams={categoryViewParams} setCategoryViewParams={setCategoryViewParams} 
+                    cart={cart} setCart={setCart}
+                    searchResults={searchResults} setSearchResults={setSearchResults}
+                    searchValues={searchValues} setSearchValues={setSearchValues}
+              />
+      )
     }
   }
 
@@ -29,15 +37,15 @@ function App() {
       <Switch>
 
         <Route path={"/cart/checkout"}>
-          <CheckoutPage setCategoryViewParams={setCategoryViewParams}/>
+          <CheckoutPage setCategoryViewParams={setCategoryViewParams} cart={cart} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />
         </Route>
 
         <Route path={"/cart"}>
-          <Cart setCategoryViewParams={setCategoryViewParams}/>
+          <Cart setCategoryViewParams={setCategoryViewParams} setCart={setCart} cart={cart} setSearchValues={setSearchValues} setSearchResults={setSearchResults}/>
         </Route>
-        
+
         <Route path={"/account"}>
-          <AccountDetails setCategoryViewParams={setCategoryViewParams}/>
+          <AccountDetails setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults}/>
         </Route>
         
         <Route path={"/"}>
