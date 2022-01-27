@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Container, FormControl, Button} from 'react-bootstrap'
+import {Form, Container, Image, Button} from 'react-bootstrap'
 
 
 
@@ -54,28 +54,25 @@ function Login({ setUser }) {
     
     
     return (
-        <div>
-            <Container>
-            <Form>
+        <Container id='form-container' className='d-grid h-100 justify-content-center'>
+            <Form id='sign-in-form' className='text-center w-100'>
+                <Image src='../images/logo-open-md.png' height='280' width='280' className='mb-4'/>
+                <h1 id='heading'>Please sign in</h1>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control onChange={e => formChange(e)} value={payload.username} type="username" placeholder="Enter username" />
+                    <Form.Control onChange={e => formChange(e)} value={payload.username} type="username" placeholder="Username or Email"/>
                     <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
+                    {/* We'll never share your email with anyone else */}
                     </Form.Text>
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control onChange={e => formChange(e)} value={payload.password} type="password" placeholder="Password" />
+                    <Form.Control onChange={e => formChange(e)} value={payload.password} type="password" placeholder="Password"/>
                 </Form.Group>
                 { incorrect ? errorMessage() : <></>}
-                <Button onClick={e => loginPost(e)} variant="primary" type="submit">
+                <Button onClick={e => loginPost(e)} variant="primary" type="submit" className='mt-2'>
                     Sign in
                 </Button>
-                </Form>
-            </Container>
-        </div>
+            </Form>
+        </Container>
     )
 }
 
