@@ -4,7 +4,7 @@ import { Rating } from '@mui/material';
 import '../styles.css'
 
 
-function CartRow({ book, cartData, setCartData, index, round }) {
+function CartRow({ book, cart, setCart, cartData, setCartData, index, round }) {
 
     const subtotal = round(book.price * book.quantity, 2)
     const discount = `${book.discount}%`
@@ -12,18 +12,27 @@ function CartRow({ book, cartData, setCartData, index, round }) {
     const total = round(subtotal - savings, 2) 
 
     function handleAdd(e) {
-        console.log(cartData)
-       const updatedBook = {...book, quantity: (book.quantity + 1)}
-       const updatedCartData = [...cartData]
-       updatedCartData[index] = updatedBook
-       setCartData(updatedCartData)
+        setCart([...cart, cart.find(cartItem => cartItem.id === book.id)])
+        const updatedBook = {...book, quantity: (book.quantity + 1)}
+        const updatedCartData = [...cartData]
+        updatedCartData[index] = updatedBook
+        setCartData(updatedCartData)
     }
 
     function handleSubtract(e) {
-       const updatedBook = {...book, quantity: (!!book.quantity ? book.quantity - 1 : 0)}
-       const updatedCartData = [...cartData]
-       updatedCartData[index] = updatedBook
-       setCartData(updatedCartData)
+        const deleteIndex = cart.indexOf(cart.find(cartItem => cartItem.id === book.id))
+        const updatedCart = [...cart]
+        updatedCart.splice(deleteIndex, 1)
+        setCart(updatedCart)
+        if (book.quantity === 1) {
+            const updatedCartData = cartData.filter(dataItem => dataItem.id !== book.id)
+            setCartData(updatedCartData)
+        } else {
+            const updatedBook = {...book, quantity: (book.quantity - 1)}
+            const updatedCartData = [...cartData]
+            updatedCartData[index] = updatedBook
+            setCartData(updatedCartData)
+        }
     }
 
     
