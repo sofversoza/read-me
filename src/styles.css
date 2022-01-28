@@ -39,7 +39,6 @@ body {
 
 #card {
     overflow: hidden;
-    
 }
 
 #card-text {
@@ -48,11 +47,14 @@ body {
 
 #side-bar-text {
     font-size: 25px;
-    
 }
 
 h6:hover {
     background-color: #93C4F2;
+}
+
+a:hover {
+    color: #95054C;
 }
 
 #pp {
@@ -71,4 +73,17 @@ h6:hover {
 
 #empty {
     font-size: 15px;
+}
+
+#success-h3 {
+    font-size: 15px;
+    color: #023581;
+}
+
+#success-page-p {
+    font-size: 15px;
+}
+
+#nav-link {
+    color: #023581;
 }
