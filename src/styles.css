@@ -13,3 +13,30 @@
 #sign-in-form {
     max-width: 400px;
 }
+
+body {
+    background: #F1F1F1;
+}
+
+#h4 {
+    font-size: 22px;
+    color: #01166A;
+}
+
+#h5 {
+    font-size: 18px;
+    color: #65021D;
+}
+
+#card-title {
+    font-size: 15px;
+}
+
+#card {
+    overflow: hidden;
+    
+}
+
+#card-text {
+    word-wrap: break-word;
+}
