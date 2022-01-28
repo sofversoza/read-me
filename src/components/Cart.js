@@ -4,7 +4,7 @@ import NavigationBar from './NavigationBar'
 import CartRow from './CartRow'
 import '../styles.css'
 
-function Cart({cart, setCart, setCategoryViewParams, setSearchValues, setSearchResults}) {
+function Cart({ user, cart, setCart, setCategoryViewParams, setSearchValues, setSearchResults}) {
     const [cartData, setCartData] = useState([])
 
     useEffect(() => {
@@ -56,7 +56,17 @@ function Cart({cart, setCart, setCategoryViewParams, setSearchValues, setSearchR
     }
 
     function placeOrder() {
-
+        const payload = {newRentals: [...cart], userData: {...user}}
+        const postObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          }
+          fetch(`http://localhost:9292/place_order`, postObj) 
+          .then(resp => resp.json())
+          .then(content => console.log(content))
     }
 
     return (

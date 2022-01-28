@@ -41,7 +41,7 @@ function App() {
         </Route>
 
         <Route path={"/cart"}>
-          <Cart setCategoryViewParams={setCategoryViewParams} setCart={setCart} cart={cart} setSearchValues={setSearchValues} setSearchResults={setSearchResults}/>
+          <Cart user={user} setCategoryViewParams={setCategoryViewParams} setCart={setCart} cart={cart} setSearchValues={setSearchValues} setSearchResults={setSearchResults}/>
         </Route>
 
         <Route path={"/account"}>

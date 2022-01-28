@@ -8,10 +8,10 @@ function Search({setSearchValues, searchToggle, setSearchToggle}) {
   function handleSearch(e) {
       e.preventDefault()
       setSearchValues({...search})
-      setSearch({query: '', searchBy: "title"})
+        setSearch({query: '', searchBy: "title"})
       setSearchToggle(!searchToggle)
       e.target.reset()
-   }
+    }
 
     return (
     <div style={{paddingTop: '20px'}}>
