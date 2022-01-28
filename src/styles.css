@@ -28,6 +28,11 @@ body {
     color: #65021D;
 }
 
+#h5-discount {
+    font-size: 15px;
+    color: #f50606;
+}
+
 #card-title {
     font-size: 15px;
 }
@@ -39,4 +44,31 @@ body {
 
 #card-text {
     word-wrap: break-word;
+}
+
+#side-bar-text {
+    font-size: 25px;
+    
+}
+
+h6:hover {
+    background-color: #93C4F2;
+}
+
+#pp {
+    font-size: 20px;
+}
+
+#num-button {
+    font-size: 27px;
+    font-weight: normal;
+}
+
+#h3-checkout-p {
+    color: #f50606;
+    font-size: 25px;
+}
+
+#empty {
+    font-size: 15px;
 }

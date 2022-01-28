@@ -1,19 +1,33 @@
-import React from 'react';
-import { NavDropdown  } from 'react-bootstrap'
+import React, {useState} from 'react';
+import {  Button, Offcanvas } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 
 function AccountDropdown() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
-    <div>
-        <NavDropdown title="My Account" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Wishlist</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Current Rentals</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Rental History</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Account Details</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>
-        </NavDropdown>
-    </div>
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        My Account
+      </Button>
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title className='fs-4'>Hi there, Sofia</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <h6 id='side-bar-text'>Wishlist</h6>
+          <h6 id='side-bar-text'>Your Ratings</h6>
+          <h6 id='side-bar-text'>Order Status</h6>
+          <h6 id='side-bar-text'>Order History</h6>
+          <h6 id='side-bar-text'>Account Settings</h6>
+          <h6 id='side-bar-text'>Log out</h6>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
   )
 }
 

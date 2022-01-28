@@ -55,18 +55,41 @@ function Cart({cart, setCart, setCategoryViewParams, setSearchValues, setSearchR
       />
       <div style={{paddingTop: '35px'}}>
         <Container >
-            <div>
-                <h1 id='heading'>Cart total</h1>
+            <div style={{paddingTop: '30px'}}>
+                <h1 id='heading'>Cart Items</h1>
+                <div style={{paddingBottom: '20px', padding: '20px', backgroundColor: 'white', marginBottom:'30px'}}>
+                <p id='pp'>You have {cart.length} items for a total of ${totalPrice()} in your cart.</p>
             </div>
-            <div style={{paddingBottom: '30px', padding: '20px', backgroundColor: 'white'}}>
-                <p>You have {cart.length} items for a total of ${totalPrice()} in your cart.</p>
-                <Button variant='success'>Checkout</Button>
-            </div>
-            <div style={{paddingTop: '45px'}}>
-                <h1 id='heading'>Item details</h1>
-                <Container style={{backgroundColor: 'white', paddingBottom: '30px', paddingTop: '30px', paddingLeft: '30px'}}>
-                    {!!cartData.length ? cartData.map((book, index) => <CartRow round={round} index={index} key={index} book={book} cartData={cartData} setCartData={setCartData}/>) : <h1>Your cart is empty</h1>}
+                <Container style={{backgroundColor: 'white', paddingBottom: '15px', paddingTop: '30px', paddingLeft: '30px'}}>
+                    {!!cartData.length ? cartData.map((book, index) => <CartRow round={round} index={index} key={index} book={book} cartData={cartData} setCartData={setCartData}/>) : <h1 id='empty'>Your cart is empty</h1>}
                 </Container>
+            </div>
+            <div style={{paddingTop: '50px'}}>
+                <h1 id='heading'>Checkout</h1>
+            </div>
+
+            {/* // CHECKOUT PORTION // */}
+            <div className='justify-content-end' style={{paddingBottom: '30px', padding: '20px', backgroundColor: 'white', marginBottom:'100px'}}>
+                {/* <p id='pp'>You have {cart.length} items for a total of ${totalPrice()} in your cart.</p>
+                <Button variant='success'>Checkout</Button> */}
+                <Row className="justify-content-md-center">
+                   <Col></Col>
+                   <Col></Col>
+                   <Col style={{marginLeft: '250px'}} id='h3-checkout'><h3>Subtotal:</h3></Col>
+                   <Col><h3 id='h3-checkout-p'>${totalPrice()}</h3></Col>
+                </Row>
+                <Row className="justify-content-md-center">
+                   <Col></Col>
+                   <Col></Col>
+                   <Col style={{marginLeft: '250px'}} id='h3-checkout'><h3>Savings:</h3></Col>
+                   <Col><h3 id='h3-checkout-p'>${totalPrice()}</h3></Col>
+                </Row>
+                <Row className="justify-content-md-center">
+                   <Col></Col>
+                   <Col></Col>
+                   <Col style={{marginLeft: '250px'}} id='h3-checkout'><h3>Total:</h3></Col>
+                   <Col><h3 id='h3-checkout-p'>${totalPrice()}</h3></Col>
+                </Row>
             </div>
         </Container>
       </div>
