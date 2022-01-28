@@ -3,7 +3,7 @@ import {  Button, Offcanvas } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
-function AccountDropdown() {
+function AccountDropdown({user}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -11,12 +11,12 @@ function AccountDropdown() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="" onClick={handleShow}>
         My Account
       </Button>
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className='fs-4'>Hi there, Sofia</Offcanvas.Title>
+          <Offcanvas.Title className='fs-4'>Hi there, {user.username}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <h6 id='side-bar-text'>Wishlist</h6>

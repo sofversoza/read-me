@@ -52,7 +52,7 @@ function CartRow({ book, cart, setCart, cartData, setCartData, index, round }) {
             <h5 id='h5'>{book.author}</h5>
             <h5 id='h5'>{book.genre}</h5>
             <h5 id='h5'>$ {book.price}</h5>
-            <p className='mt-4'>Expected delivery to the US in 8-13 business days</p>
+            <p className='mt-4'>Expected delivery to the US in 3-5 business days</p>
         </Col>
         <Col sm={2}>
             <ButtonGroup aria-label="quantity" >

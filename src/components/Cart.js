@@ -77,6 +77,7 @@ function Cart({ user, cart, setCart, setCategoryViewParams, setSearchValues, set
         setCategoryViewParams={setCategoryViewParams} 
         setSearchValues={setSearchValues} 
         setSearchResults={setSearchResults} 
+        user={user}
       />
       <div style={{paddingTop: '35px'}}>
         <Container >
@@ -114,9 +115,16 @@ function Cart({ user, cart, setCart, setCategoryViewParams, setSearchValues, set
                    <Col></Col>
                    <Col style={{marginLeft: '250px'}} id='h3-checkout'><h3>Total:</h3></Col>
                    <Col><h3 id='h3-checkout-p'>${total()}</h3></Col>
-                   <Link to='/cart/checkout/success'>
-                    <Button onClick={placeOrder}>Place Order</Button>
-                   </Link>
+                   
+                </Row>
+                <Row className="justify-content-md-center">
+                   <Col></Col>
+                   <Col></Col>
+                   <Col style={{marginLeft: '300px', paddingTop: '35px'}}>
+                      <Link to='/cart/checkout/success'>
+                        <Button variant='success' onClick={placeOrder}>Place Order</Button>
+                      </Link>
+                   </Col>
                 </Row>
             </div>
         </Container>

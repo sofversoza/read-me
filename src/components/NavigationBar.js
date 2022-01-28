@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import AccountDropdown from './AccountDropdown'
 
-function NavigationBar({ setCategoryViewParams, setSearchValues, setSearchResults }) {
+function NavigationBar({ setCategoryViewParams, setSearchValues, setSearchResults, user }) {
 
   function categoryDisplay(category) {
     setSearchValues({query: '', searchBy: ''})
@@ -29,7 +29,7 @@ function NavigationBar({ setCategoryViewParams, setSearchValues, setSearchResult
           <Link to="/cart" style={{color:'black', textDecoration: 'none'}}>Cart</Link>
         </Nav.Item>
         <Nav.Item>
-          <AccountDropdown />
+          <AccountDropdown user={user}/>
         </Nav.Item>
       </Nav>
   )

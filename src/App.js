@@ -25,6 +25,7 @@ function App() {
                     cart={cart} setCart={setCart}
                     searchResults={searchResults} setSearchResults={setSearchResults}
                     searchValues={searchValues} setSearchValues={setSearchValues}
+                    user={user}
               />
       )
     }
@@ -36,7 +37,7 @@ function App() {
       {!!Object.keys(user).length ? <Header /> : <></>} 
       <Switch>
         <Route path='/cart/checkout/success'>
-          <SuccessPage />
+          <SuccessPage user={user} setCart={setCart} setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />
         </Route>
         <Route path={"/cart/checkout"}>
           <CheckoutPage user={user} setCategoryViewParams={setCategoryViewParams} cart={cart} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />

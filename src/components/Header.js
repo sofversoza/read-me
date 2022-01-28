@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import NavigationBar from './NavigationBar'
-import { Button, Image, Offcanvas, Container } from 'react-bootstrap'
+import { Button, Image, Offcanvas } from 'react-bootstrap'
 
 
 function Header() {
@@ -18,24 +17,6 @@ function Header() {
           <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
           <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
         </div>
-        <div>
-      <Button size='lg' variant="outline" onClick={handleShow}>
-        My Account
-      </Button>
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title className='fs-4'>Hi there, Sofia</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <h6 id='side-bar-text'>Wishlist</h6>
-          <h6 id='side-bar-text'>Your Ratings</h6>
-          <h6 id='side-bar-text'>Order Status</h6>
-          <h6 id='side-bar-text'>Order History</h6>
-          <h6 id='side-bar-text'>Account Settings</h6>
-          <h6 id='side-bar-text'>Log out</h6>
-        </Offcanvas.Body>
-      </Offcanvas>
-      </div>
       </div>
     </div>
     <div style={{backgroundColor: '#C1D2DF'}}>

@@ -3,7 +3,6 @@ import { Row, Col, Container } from 'react-bootstrap'
 import BookCards from './BookCards'
 
 function SearchResults({searchResults, searchValues, setCart, cart}) {
-
     function generateResults() {
         const fullRowCount = Math.floor(searchResults.length / 5)
         let bookStart = 0
@@ -46,5 +45,6 @@ function SearchResults({searchResults, searchValues, setCart, cart}) {
         </div>
     )
 }
+
 
 export default SearchResults

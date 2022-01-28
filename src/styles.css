@@ -87,3 +87,12 @@ a:hover {
 #nav-link {
     color: #023581;
 }
+
+#success-form-container {
+    margin-top: 100px;
+}
+
+#success-heading {
+    color: green;
+    font-size: 30px;
+}

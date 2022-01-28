@@ -6,7 +6,7 @@ import BookDetails from './BookDetails'
 import SearchResults from './SearchResults'
 
 
-function Home({categoryViewParams, setCategoryViewParams, setCart, cart, searchResults, setSearchResults, searchValues, setSearchValues}) {
+function Home({categoryViewParams, setCategoryViewParams, setCart, cart, searchResults, setSearchResults, searchValues, setSearchValues, user}) {
   const firstLoad = useRef(true)
   const [categoryContent, setCategoryContent] = useState({})
   const [searchToggle, setSearchToggle] = useState(false)
@@ -77,7 +77,7 @@ function Home({categoryViewParams, setCategoryViewParams, setCart, cart, searchR
 
   return (
     <>
-      <NavigationBar setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults}/>
+      <NavigationBar user={user} setCategoryViewParams={setCategoryViewParams} setSearchValues={setSearchValues} setSearchResults={setSearchResults}/>
       <Search setSearchValues={setSearchValues} searchToggle={searchToggle} setSearchToggle={setSearchToggle} />
       {viewSelector()}
     </>
