@@ -8,7 +8,7 @@ import Login from './components/Login';
 import AccountDetails from './components/AccountDetails';
 import Cart from './components/Cart';
 import CheckoutPage from './components/CheckoutPage';
-
+import SuccessPage from './components/SuccessPage';
 
 function App() {
   const [user, setUser] = useState({})
@@ -35,7 +35,9 @@ function App() {
       
       {!!Object.keys(user).length ? <Header /> : <></>} 
       <Switch>
-
+        <Route path='/cart/checkout/success'>
+          <SuccessPage />
+        </Route>
         <Route path={"/cart/checkout"}>
           <CheckoutPage user={user} setCategoryViewParams={setCategoryViewParams} cart={cart} setSearchValues={setSearchValues} setSearchResults={setSearchResults} />
         </Route>

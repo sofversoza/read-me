@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles.css'
-import { Container, Form } from 'react-bootstrap'
+import { Container, Form, Image } from 'react-bootstrap'
 
 
 function SuccessPage() {

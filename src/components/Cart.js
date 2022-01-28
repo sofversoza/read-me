@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { Button, Container, Row, Col, Image } from 'react-bootstrap'
+import { Button, Container, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import NavigationBar from './NavigationBar'
 import CartRow from './CartRow'
 import '../styles.css'
@@ -113,7 +114,9 @@ function Cart({ user, cart, setCart, setCategoryViewParams, setSearchValues, set
                    <Col></Col>
                    <Col style={{marginLeft: '250px'}} id='h3-checkout'><h3>Total:</h3></Col>
                    <Col><h3 id='h3-checkout-p'>${total()}</h3></Col>
-                   <Button onClick={placeOrder}>Place Order</Button>
+                   <Link to='/cart/checkout/success'>
+                    <Button onClick={placeOrder}>Place Order</Button>
+                   </Link>
                 </Row>
             </div>
         </Container>
